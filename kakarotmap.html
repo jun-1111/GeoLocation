@@ -17,8 +17,8 @@
             <button onclick='searchByAddress()'>주소명으로 지도 찾기</button>
         </div>
     </fieldset>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0ed4ec7282001dc66df0e7f3e5e46649"></script>
-
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3a6d5290191fb4e317cb31efb2e060a"></script>
+    
     <script>
         /*
          //샘플코드
@@ -92,11 +92,18 @@
                 infowindow.open(map, marker);  
             });
         }
+
+        //개발자 샌터에서 //주소로 장소표시하기로 검색 
+
         //한글 주소로 지도 표시하기
         function searchByAddress(){
             //입력주소명 얻기
             var address= document.getElementById('address').value;
             //주소로 장소 표시하기 로 검색
+            var geocoder = new kakao.maps.services.Geocoder();
+
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+
         }
     </script>
 </body>
