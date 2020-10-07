@@ -9,7 +9,7 @@
 <body>
     <fieldset>
 
-        <legend>현재 위치를 자도에 표시하기</legend>
+        <legend>현재 위치를 지도에 표시하기</legend>
         
         
         <div id="map" style="width : 500px; height : 400px; background-color: yellow;">
@@ -30,7 +30,7 @@
 
     </fieldset>
 
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0ed4ec7282001dc66df0e7f3e5e46649"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3a6d5290191fb4e317cb31efb2e060a"></script>
 
 
     <script>
@@ -53,9 +53,9 @@
 
 
         if(navigator.geolocation){//브라우저의 geo 지원
-            var options = {timeout: 3000 , maximumAge : 5000}; //리터럴 객체 ??
+            var options = {timeout: 30000 , maximumAge : 5000}; //리터럴 객체 ??
             //현재 위치 정보 딱 한번만 얻기
-            navigator.geolocation.getCurrentPosition(successCallback,errorCallback,options);
+            navigator.geolocation.getCurrentPosition(successCallback);
             
             //첫번재인자는 성공했을때 실행할 함수, 두번째인자는 실패했을때 실행할 함수(생략가능)
             //옵션에 있는 것들은 키 : 값 등의 형태로 전달??
@@ -82,66 +82,17 @@
 
         //지도 표시 함수]
         
-        function displayKaKaoMap(lat12,lng12){
-
-
-                var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
-                var mapOption = { 
-                        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-                        level: 3 // 지도의 확대 레벨
-                    };
-
-                // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-                var map = new kakao.maps.Map(mapContainer, mapOption); 
-            /*
-            //샘플코드 
-            var container = document.getElementById('map'); // 지도를 표시할 div 
-            var option = { 
-                    center: new kakao.maps.LatLng(lat12,lng12), // 지도의 중심좌표
+        function displayKaKaoMap(){
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
+            var mapOption = { 
+                    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
                     level: 3 // 지도의 확대 레벨
                 };
 
             // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-            map = new kakao.maps.Map(container, option); 
-            */
+            var map = new kakao.maps.Map(mapContainer, mapOption); 
         }   
 
-        /*
-
-        setMarker(lat,lng);
-
-
-        var setMarker = function(lat,lng){
-            var markerPosition  = new kakao.maps.LatLng(lat, lng); 
-
-                    // 이미지 지도에 표시할 마커입니다
-                    // 이미지 지도에 표시할 마커는 Object 형태입니다
-                    var marker = {
-                        position: markerPosition
-                    };
-
-                    var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
-                        staticMapOption = { 
-                            center: new kakao.maps.LatLng(lat,lng), // 이미지 지도의 중심좌표
-                            level: 3, // 이미지 지도의 확대 레벨
-                            marker: marker // 이미지 지도에 표시할 마커 
-                        };    
-
-                    // 이미지 지도를 생성합니다
-                    var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
-
-
-                setMarkerClick();
-        };
-        
-        */
-
-        function searchByAddress(){
-            //입력주소명 얻기
-            var address = document.getElementById('address').value;
-
-            
-        }
     </script>
 
 
